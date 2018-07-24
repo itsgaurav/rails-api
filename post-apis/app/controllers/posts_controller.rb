@@ -34,7 +34,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    byebug
     @post = current_user.posts.find_by_id(params["id"].to_i)
     render :json => {:msg => "post does not exist or doesn't belong to the user"}, :status => 404 if @post.blank?
   end
